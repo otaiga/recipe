@@ -1,0 +1,11 @@
+<h1>Add recipe</h1>
+
+<%= form_for @recipe, :url => recipe_path, :multipart => true do |f| %>
+
+<%= f.label :dish_name %>
+<%= f.text_field :dish_name %>
+
+
+
+
+<% end %>
