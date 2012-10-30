@@ -10,4 +10,14 @@ describe RecipesController do
       end
     end
 
+    
+  describe "Show Recipe Page" do
+
+      it "should display show recipe  page" do
+        get :show
+        response.should be_success
+        response.should render_template(:show)
+      end
+    end
+
 end

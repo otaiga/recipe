@@ -1,3 +1,5 @@
+<h1>Recipe Home Page when logged in</h1>
+
 <h1>Recipes</h1>
 
 <table>
@@ -9,5 +11,8 @@
     <th>Delete</th>
   </tr>
 
-  <tr><td><%= @recipe recipe_id %></td></tr>
+  <% @recipes.each do |r| %>
+  <tr><td><%= r.dish_name %></td></tr>
+
+  <% end %>
 </table>

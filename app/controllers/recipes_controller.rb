@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.all
+    @recipe = Recipe.find(params[:id])
 
   end
 
@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
   @recipe = Recipe.new(params[:recipe])
   if @recipe.valid?
     @recipe.save
-    redirect_to(:action => :index, :notice => "Recipe sucessfully created.")
+    redirect_to new_recipe_path, :notice => "Recipe sucessfully created."
   else
     flash.now.alert = "Please ensure all fields are filled in."
     render :new
@@ -31,14 +31,23 @@ class RecipesController < ApplicationController
 end
 
   def edit
+    @recipe = Recipe.find(params[:id])
 
   end
 
   def update
-
+    @recipe =Recipe.find(params[:recipe])
+    @recipe.update_attributes(params[:recipe])
+    @recipe.save
+    redirect_to recipe_path, :notice => "Successfully updated recipe"
+    
   end
 
   def destroy
+
+    @recipe = current_user.Recipe.find(params[:recipe, :ingredients, :preperation])
+    @recipe.destroy
+    redirect_to recipe_path, :notice => "Successfully Deleted Recipe"
 
   end
 end
