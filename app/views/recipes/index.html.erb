@@ -12,7 +12,13 @@
   </tr>
 
   <% @recipes.each do |r| %>
-  <tr><td><%= r.dish_name %></td></tr>
+  <tr>
+    <td><%= r.dish_name %></td>
+    <td><%= r.country_of_origin %></td>
+    <td><%= r.difficulty %></td>
+    <td><%= r.preperation_time %></td>
+    <td><%= link_to "Delete", recipes_path, :method => "destroy" %>
+ </tr>
 
   <% end %>
 </table>

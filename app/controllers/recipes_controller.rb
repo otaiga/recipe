@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
 
   def index
   
-    @recipe = Recipe.all
+    @recipes = Recipe.all
 
   end
 
@@ -45,9 +45,15 @@ end
 
   def destroy
 
-    @recipe = current_user.Recipe.find(params[:recipe, :ingredients, :preperation])
-    @recipe.destroy
+    @recipe = Recipe.find(params[:id])
+     if @recipe.destroy
     redirect_to recipe_path, :notice => "Successfully Deleted Recipe"
-
+     else
+    redirect_to recipe_path, :notice => "OOPS something went wrong"
+  
   end
+  end
+
 end
+
+
