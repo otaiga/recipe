@@ -1,26 +1,3 @@
 <h1>add recipe here</h1>
 
-<%= form_for @recipe, :url => recipes_path  do |f| %>
-
-<%= f.label :dish_name, "Dish Name" %>
-<%= f.text_field :dish_name %>
-
-<%= f.label :country_of_origin, "Country Of Origin" %>
-<%= f.select :country_of_origin,  [['Wales'],['Scotland'],['England']], {:include_blank => 'Please Select'} %>
-
-<%= f.label :difficulty, "Difficulty Level" %>
-<%= f.select :difficulty, [['Beginner'],['Intermediate'],['Expert']], {:include_blank => 'Please Select'} %>
-
-<%= f.label :preperation_time, "Preperation Time (Mins)" %>
-<%= f.select :preperation_time, [['15..30'],['30..60'],['60..120']], {:include_blank => 'Please Select'} %>
-
-
-
-
-
-<%= f.submit "Submit Recipe" %>
-
-
-
-
-<% end %>
+<%= render "form" %>

@@ -31,27 +31,29 @@ class RecipesController < ApplicationController
 end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:recipe])
 
   end
 
   def update
-    @recipe =Recipe.find(params[:recipe])
-    @recipe.update_attributes(params[:recipe])
-    @recipe.save
+    @recipe = Recipe.find(params[:id])
+
+   if @recipe.update_attributes(params[:recipe])
     redirect_to recipe_path, :notice => "Successfully updated recipe"
+  else 
+
+    render 'edit'
     
   end
+end
 
   def destroy
 
     @recipe = Recipe.find(params[:id])
-     if @recipe.destroy
-    redirect_to recipe_path, :notice => "Successfully Deleted Recipe"
-     else
-    redirect_to recipe_path, :notice => "OOPS something went wrong"
-  
-  end
+    @recipe.destroy 
+    
+     
+     
   end
 
 end

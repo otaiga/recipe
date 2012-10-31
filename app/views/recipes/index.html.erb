@@ -9,6 +9,7 @@
     <th>Difficulty</th>
     <th>Preperation Time</th>
     <th>Delete</th>
+    <th>Edit</th>
   </tr>
 
   <% @recipes.each do |r| %>
@@ -17,7 +18,8 @@
     <td><%= r.country_of_origin %></td>
     <td><%= r.difficulty %></td>
     <td><%= r.preperation_time %></td>
-    <td><%= link_to "Delete", recipes_path, :method => "destroy" %>
+    <td><%= link_to "Destroy", @recipe, confirm: "Are you sure?", :method => :delete %></td>
+    <td><%= link_to "Edit" %>
  </tr>
 
   <% end %>
