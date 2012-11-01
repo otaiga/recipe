@@ -1,4 +1,4 @@
-<%= form_for @recipe, :url => recipes_path  do |f| %>
+<%= form_for @recipe  do |f| %>
 
 <%= f.label :dish_name, "Dish Name" %>
 <%= f.text_field :dish_name %>
@@ -11,6 +11,12 @@
 
 <%= f.label :preperation_time, "Preperation Time (Mins)" %>
 <%= f.select :preperation_time, [['15..30'],['30..60'],['60..120']], {:include_blank => 'Please Select'} %>
+
+<%= f.label :ingredients, "Ingredients" %>
+<%= f.text_field :ingredients , :class => "ingred" %><br>
+
+<a id="addIngredient" href="#">Add another Ingredient</a>
+<br>
 
 
 

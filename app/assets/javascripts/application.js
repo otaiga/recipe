@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+
+//Add Ingredient
+
+$('document').ready(function(e) {
+  e.preventDefault;
+  $('#addIngredient').click(function() {
+    (this).before('<%= f.text_field :ingredients %>');
+
+  })
+
+
+});

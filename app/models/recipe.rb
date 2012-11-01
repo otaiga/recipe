@@ -3,6 +3,8 @@ class Recipe < ActiveRecord::Base
 
     validates :dish_name, :presence => true
 
+    has_many :ingredients
+
 
 
 
