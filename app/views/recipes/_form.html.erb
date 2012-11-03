@@ -1,7 +1,7 @@
 <%= form_for @recipe  do |f| %>
 
 <%= f.label :dish_name, "Dish Name" %>
-<%= f.text_field :dish_name %>
+<%= f.text_field :dish_name, :placeholder => "Enter Dish Name" %>
 
 <%= f.label :country_of_origin, "Country Of Origin" %>
 <%= f.select :country_of_origin,  [['Wales'],['Scotland'],['England']], {:include_blank => 'Please Select'} %>
@@ -12,19 +12,19 @@
 <%= f.label :preperation_time, "Preperation Time (Mins)" %>
 <%= f.select :preperation_time, [['15..30'],['30..60'],['60..120']], {:include_blank => 'Please Select'} %>
 
-<%= f.label :ingredients, "Ingredients" %>
-<%= f.text_field :ingredients , :class => "ingred" %><br>
+<%= f.fields_for :ingredient do |builder| %>
+    <%= render "ingredient_fields", :f => builder %>
 
-<a id="addIngredient" href="#">Add another Ingredient</a>
-<br>
-
-
-
-
-
+<% end %>
 <%= f.submit "Submit Recipe" %>
 
 
 
+
+
+<script type="text/javascript">
+var ingredient = '<%= f.text_field :ingredients , :class => :ingred, :placeholder => "Enter Ingredient Here" %><br>'
+
+</script>
 
 <% end %>

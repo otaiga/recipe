@@ -18,6 +18,7 @@
     <td><%= r.country_of_origin %></td>
     <td><%= r.difficulty %></td>
     <td><%= r.preperation_time %></td>
+    
     <td><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></td>
     <td><%= link_to "Edit Recipe", edit_recipe_path(r.id) %>
  </tr>
