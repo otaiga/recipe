@@ -21,14 +21,8 @@ class RecipesController < ApplicationController
   def create
 
   @recipe = Recipe.new(params[:recipe])
-  if @recipe.valid?
     @recipe.save
     redirect_to recipes_path, :notice => "Recipe sucessfully created."
-  else
-    flash.now.alert = "Please ensure all fields are filled in."
-    render :new
-
-  end
 end
 
   def edit

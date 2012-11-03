@@ -12,10 +12,10 @@
 <%= f.label :preperation_time, "Preperation Time (Mins)" %>
 <%= f.select :preperation_time, [['15..30'],['30..60'],['60..120']], {:include_blank => 'Please Select'} %>
 
-<%= f.fields_for :ingredient do |builder| %>
-    <%= render "ingredient_fields", :f => builder %>
+<%= f.label :ingredients, "Ingredients" %> 
+<%= f.text_field :ingredients, :class => :ingred, :placeholder => "Enter Ingredient Here" %><br>
 
-<% end %>
+
 <%= f.submit "Submit Recipe" %>
 
 

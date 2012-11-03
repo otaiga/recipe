@@ -8,6 +8,7 @@
     <th>Country Of Origin</th>
     <th>Difficulty</th>
     <th>Preperation Time</th>
+    <th>ingredient</th>
     <th>Delete</th>
     <th>Edit</th>
   </tr>
@@ -18,6 +19,7 @@
     <td><%= r.country_of_origin %></td>
     <td><%= r.difficulty %></td>
     <td><%= r.preperation_time %></td>
+    <td><%= r.ingredients %></td>
     
     <td><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></td>
     <td><%= link_to "Edit Recipe", edit_recipe_path(r.id) %>
