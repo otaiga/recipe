@@ -1,0 +1,16 @@
+<div class="container">
+<div class="navbar">
+ <div class="navbar-inner">
+  <a class="brand" href="#">RealRecipes</a>
+   <ul class="nav">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About RealRecipes</a></li>
+    <li><a href="/my_recipes">My Recipes</a></li>
+    <li><a href="contact_us">Contact Us</a></li>
+   </ul>
+    <ul class="nav pull-right">
+     <li><%= link_to('Logout', destroy_user_session_path, confirm: 'Are you sure you want to logout?', :method =>:delete) %></li>
+    </ul>
+ </div>
+</div>
+</div>

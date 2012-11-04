@@ -3,8 +3,14 @@ before_filter :authenticate_user!
 
   def index
   
-    @recipes = current_user.recipes if current_user.recipes
+   
 
+  end
+
+  def my_recipes
+    
+     @recipes = current_user.recipes if current_user.recipes #show recipes if the user has any recipes
+     
   end
 
   def show
@@ -23,7 +29,7 @@ before_filter :authenticate_user!
   def create
     @recipe = current_user.recipes.new(params[:recipe])
     if @recipe.save
-      redirect_to recipes_path, :notice => "Recipe sucessfully created."
+      redirect_to my_recipes_path, :notice => "Recipe sucessfully created."
     end
   end
 
@@ -36,7 +42,7 @@ before_filter :authenticate_user!
     @recipe = Recipe.find(params[:id])
 
    if @recipe.update_attributes(params[:recipe])
-    redirect_to recipes_path, :notice => "Successfully updated recipe"
+    redirect_to my_recipes_path, :notice => "Successfully updated recipe"
   else 
 
     render :action => 'edit'
@@ -48,7 +54,7 @@ end
 
     @recipe = Recipe.find(params[:id])
     @recipe.destroy 
-    redirect_to recipes_path, :notice => "Successfully deleted recipe"
+    redirect_to my_recipes_path, :notice => "Successfully deleted recipe"
     
      
     

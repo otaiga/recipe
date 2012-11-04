@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <ul class="thumbnails">
+    <li class="span4">
+    <div class="thumbnail">
+      <% @recipes.each do |r| %>
+       <%= image_tag r.avatar.url(:medium)%>
+        <h3 class="center"><a href="#"><%= r.dish_name %></a></h3>
+        <p>Description of dish</p>
+    </div>
+    </li>
+      <% end %>
+    </ul>
+
+
+
+
+
+
+      
+    </div><!--/row-->
+  </div><!--/container-->
+
+
+
+<h1>My Recipes</h1>
+
+<table>
+  <tr>
+    <th>Name Of Dish</th>
+    <th>Country Of Origin</th>
+    <th>Difficulty</th>
+    <th>Preperation Time</th>
+    <th>ingredient</th>
+    <th>Preperation</th>
+    <th>Image</th>
+    <th>Delete</th>
+    <th>Edit</th>
+  </tr>
+
+  <% @recipes.each do |r| %>
+  <tr>
+    <td><%= r.dish_name %></td>
+    <td><%= r.country_of_origin %></td>
+    <td><%= r.difficulty %></td>
+    <td><%= r.preperation_time %></td>
+    <td><%= ingredient_names(r.ingredients) %></td>
+    <td><%= preperation_steps(r.preperations) %></td>
+    <td><%= image_tag r.avatar.url(:thumb)%></td>
+    
+    <td><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></td>
+    <td><%= link_to "Edit Recipe", edit_recipe_path(r.id) %></td>
+ </tr>
+
+  <% end %>
+</table>
+
+<li><%= link_to "Create New Recipe", new_recipe_path %></li>

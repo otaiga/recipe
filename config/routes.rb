@@ -7,7 +7,17 @@ Recipes::Application.routes.draw do
   end
 
 
-  resources :public_pages
+  scope :controller => :mains do
+    get "about"
+    get "contact_us"
+
+  end
+
+  scope :controller => :recipes do
+    get "my_recipes"
+  end
+
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -58,7 +68,7 @@ Recipes::Application.routes.draw do
 
   # Directing the user after login
   authenticated :user do
-    root :to => 'recipes#index'
+    root :to => 'recipes#my_recipes'
   end
 
   # You can have the root of your site routed with "root"

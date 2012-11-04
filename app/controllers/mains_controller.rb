@@ -3,6 +3,10 @@ class MainsController < ApplicationController
 
   end
 
+  def about
+
+  end
+
   def contact_us
 
   end
