@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103150517) do
+ActiveRecord::Schema.define(:version => 20121104005525) do
 
   create_table "ingredients", :force => true do |t|
     t.text     "ingredient_name"
@@ -20,13 +20,25 @@ ActiveRecord::Schema.define(:version => 20121103150517) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "preperations", :force => true do |t|
+    t.text     "prep_steps"
+    t.integer  "recipe_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "recipes", :force => true do |t|
     t.string   "dish_name"
     t.string   "country_of_origin"
     t.string   "difficulty"
     t.integer  "preperation_time"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "user_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -42,8 +54,13 @@ ActiveRecord::Schema.define(:version => 20121103150517) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

@@ -25,6 +25,13 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
+# Allows nested forms and add additional fields
+gem "nested_form"
+
+#paperclip
+gem "paperclip", "~> 3.0"
+
+
 
 #js stuff:
 gem 'execjs'

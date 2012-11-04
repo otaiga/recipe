@@ -1,9 +1,9 @@
 class RecipesController < ApplicationController
-
+before_filter :authenticate_user!
 
   def index
   
-    @recipes = Recipe.all
+    @recipes = current_user.recipes if current_user.recipes
 
   end
 
@@ -15,15 +15,17 @@ class RecipesController < ApplicationController
   def new 
 
   @recipe = Recipe.new
+  @recipe.ingredients.build
+  @recipe.preperations.build
 
   end
 
   def create
-
-  @recipe = Recipe.new(params[:recipe])
-    @recipe.save
-    redirect_to recipes_path, :notice => "Recipe sucessfully created."
-end
+    @recipe = current_user.recipes.new(params[:recipe])
+    if @recipe.save
+      redirect_to recipes_path, :notice => "Recipe sucessfully created."
+    end
+  end
 
   def edit
     @recipe = Recipe.find(params[:id])

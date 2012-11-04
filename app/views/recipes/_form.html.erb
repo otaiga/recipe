@@ -1,4 +1,4 @@
-<%= form_for @recipe  do |f| %>
+<%= nested_form_for @recipe  do |f| %>
 
 <%= f.label :dish_name, "Dish Name" %>
 <%= f.text_field :dish_name, :placeholder => "Enter Dish Name" %>
@@ -12,19 +12,19 @@
 <%= f.label :preperation_time, "Preperation Time (Mins)" %>
 <%= f.select :preperation_time, [['15..30'],['30..60'],['60..120']], {:include_blank => 'Please Select'} %>
 
-<%= f.label :ingredients, "Ingredients" %> 
-<%= f.text_field :ingredients, :class => :ingred, :placeholder => "Enter Ingredient Here" %><br>
+<%= f.fields_for :ingredients do |ff| %>
+ Ingredient<br>
+ <%= ff.text_field :ingredient_name , :placeholder => "Enter Ingredient Here" %><br>
+<% end %>
+<%= f.link_to_add "Add an Ingredient", :ingredients %><br>
 
+<%= f.fields_for :preperations do |fff| %>
+ Preperation Step<br>
+ <%= fff.text_field :prep_steps , :placeholder => "Enter step Here" %><br>
+<% end %>
+<%= f.link_to_add "Add a step", :preperations %><br>
+
+<%= f.file_field :avatar %><br>
 
 <%= f.submit "Submit Recipe" %>
-
-
-
-
-
-<script type="text/javascript">
-var ingredient = '<%= f.text_field :ingredients , :class => :ingred, :placeholder => "Enter Ingredient Here" %><br>'
-
-</script>
-
 <% end %>

@@ -3,7 +3,11 @@ Recipes::Application.routes.draw do
 
   resources :recipes do
     resources :ingredients
+    resources :preperations
   end
+
+
+  resources :public_pages
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,9 +56,16 @@ Recipes::Application.routes.draw do
   #     resources :products
   #   end
 
+  # Directing the user after login
+  authenticated :user do
+    root :to => 'recipes#index'
+  end
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'public_pages#index'
+   root :to => 'mains#index'
+
+
 
   # See how all your routes lay out with "rake routes"
 
