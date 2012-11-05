@@ -1,28 +1,6 @@
 <div class="container">
-  <div class="row">
-    <ul class="thumbnails">
-    <li class="span4">
-    <div class="thumbnail">
-      <% @recipes.each do |r| %>
-       <%= image_tag r.avatar.url(:medium)%>
-        <h3 class="center"><a href="#"><%= r.dish_name %></a></h3>
-        <p>Description of dish</p>
-    </div>
-    </li>
-      <% end %>
-    </ul>
-
-
-
-
-
-
-      
-    </div><!--/row-->
-  </div><!--/container-->
-
-
-
+<div class="row">
+  <div class="span12">
 <h1>My Recipes</h1>
 
 <table>
@@ -56,3 +34,9 @@
 </table>
 
 <li><%= link_to "Create New Recipe", new_recipe_path %></li>
+
+<h2>My Favourite Recipes</h2>
+
+</div>
+</div>
+</div>

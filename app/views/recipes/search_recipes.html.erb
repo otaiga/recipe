@@ -1,4 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      <h3>Search Recipes here</h3>
 
+
+    </div>
+  </div>
+</div>
 <h1>All Recipes</h1>
 
 <table>
@@ -9,9 +17,6 @@
     <th>Preperation Time</th>
     <th>ingredient</th>
     <th>Preperation</th>
-    <th>Delete</th>
-    <th>Edit</th>
-    <th>New</th>
   </tr>
 
   <% @recipes.each do |r| %>
@@ -23,9 +28,6 @@
     <td><%= ingredient_names(r.ingredients) %></td>
     <td><%= preperation_steps(r.preperations) %></td>
     
-    <td><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></td>
-    <td><%= link_to "Edit Recipe", edit_recipe_path(r.id) %></td>
-    <td><%= link_to "New Recipe", new_recipe_path %></td>
 
  </tr>
 

@@ -13,6 +13,15 @@ before_filter :authenticate_user!
      
   end
 
+  def search_recipes
+    @recipes = Recipe.all
+    @latestrecipe = Recipe.order("created_at desc").limit(5)
+    @featurerecipe = Recipe.offset(rand(Recipe.count)).first
+    @toprankingcountry = Recipe.top_countries.first
+    
+
+  end
+
   def show
     @recipe = Recipe.find(params[:id])
 
