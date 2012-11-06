@@ -6,6 +6,8 @@ Recipes::Application.routes.draw do
     resources :preperations
   end
 
+  resources :favourites, :create, :destroy
+
 
   scope :controller => :mains do
     get "about"

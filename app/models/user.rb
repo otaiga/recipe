@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
 
   has_many :recipes
+  has_many :favourites
+  
+  
+  
+
  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

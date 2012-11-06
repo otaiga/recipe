@@ -11,10 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105173950) do
+ActiveRecord::Schema.define(:version => 20121106182317) do
 
   create_table "favourites", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "recipe_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
