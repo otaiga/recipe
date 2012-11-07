@@ -29,7 +29,7 @@
     
     <td><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></td>
     <td><%= link_to "Edit Recipe", edit_recipe_path(r.id) %></td>
-     <td><%= link_to "Add to favorites",  {:controller => 'favourites', :action => 'create', :recipe_id => @recipe.id}, {:method => :post } %></td>
+     <td><%= link_to "Add to favorites",  {:controller => 'favourites', :action => 'create', :recipe_id => r.id}, {:method => :post } %></td>
  </tr>
 
   <% end %>
