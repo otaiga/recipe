@@ -29,7 +29,7 @@
     
     <td><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></td>
     <td><%= link_to "Edit Recipe", edit_recipe_path(r.id) %></td>
-     <td><%= link_to "Add to favorites",  {:controller => 'favourites', :action => 'create', :recipe_id => @recipe.id}, {:method => :post } %></td>
+     <td><%= link_to "Add to favorites",  {:controller => 'favourites', :action => 'create', :recipe_id => r.id}, {:method => :post } %></td>
  </tr>
 
   <% end %>
@@ -38,8 +38,31 @@
 <li><%= link_to "Create New Recipe", new_recipe_path %></li>
 
 <h2>My Favourite Recipes</h2>
-<li><%= @favourites %></li>
 
+    <table>
+  <tr>
+    <th>Name Of Dish</th>
+    <th>Country Of Origin</th>
+    <th>Difficulty</th>
+    <th>Preperation Time</th>
+    <th>ingredient</th>
+    <th>Preperation</th>
+    <th>Image</th>
+  </tr>
+
+  <% @favourites.each do |f| %>
+  <tr>
+    <td><%= f.recipe.dish_name %></td>
+    <td><%= f.recipe.country_of_origin %></td>
+    <td><%= f.recipe.difficulty %></td>
+    <td><%= f.recipe.preperation_time %></td>
+    <td><%= ingredient_names(f.recipe.ingredients) %></td>
+    <td><%= preperation_steps(f.recipe.preperations) %></td>
+    <td><%= image_tag f.recipe.avatar.url(:thumb)%></td>
+ </tr>
+
+  <% end %>
+</table>
 
 
  

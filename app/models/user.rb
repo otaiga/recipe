@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_many :recipes
   has_many :favourites
+  has_many :favourites,:through => :recipes
+
   
   
   
