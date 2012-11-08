@@ -1,0 +1,33 @@
+<table>
+  <tr>
+    <th>Name Of Dish</th>
+    <th>Country Of Origin</th>
+    <th>Difficulty</th>
+    <th>Preperation Time</th>
+    <th>ingredient</th>
+    <th>Preperation</th>
+    <th>Image</th>
+    <th>Delete</th>
+    <th>Edit</th>
+    <th>Fav</th>
+  </tr>
+
+  <% @recipes.each do |r| %>
+  <tr>
+    <td><%= r.dish_name %></td>
+    <td><%= r.country_of_origin %></td>
+    <td><%= r.difficulty %></td>
+    <td><%= r.preperation_time %></td>
+    <td><%= ingredient_names(r.ingredients) %></td>
+    <td><%= preperation_steps(r.preperations) %></td>
+    <td><%= image_tag r.avatar.url(:thumb)%></td>
+    
+    <td><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></td>
+    <td><%= link_to "Edit Recipe", edit_recipe_path(r.id) %></td>
+     <td><%= link_to "Add to favorites",  {:controller => 'favourites', :action => 'create', :recipe_id => r.id}, {:method => :post } %></td>
+ </tr>
+
+  <% end %>
+</table>
+
+<li><%= link_to "Create New Recipe", new_recipe_path %></li>

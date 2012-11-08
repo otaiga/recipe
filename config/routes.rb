@@ -20,6 +20,13 @@ Recipes::Application.routes.draw do
     get "search_recipes"
   end
 
+  scope :controller => :search do
+    get "index"
+    get "search"
+  end
+
+
+
 
  
   # The priority is based upon order of creation:

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :recipes
-  has_many :favourites
+  has_many :favourites, :dependent => :destroy
   has_many :favourites,:through => :recipes
 
   
