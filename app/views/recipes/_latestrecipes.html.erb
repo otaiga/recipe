@@ -1,0 +1,8 @@
+<% @latestrecipe.each do |r| %>
+<li><%= r.dish_name %></li>
+<li><%= r.country_of_origin %></li>
+<li><%= r.difficulty %></li>
+<li><%= r.preperation_time %></li>
+<li><%= ingredient_names(r.ingredients) %></li>
+<li><%= preperation_steps(r.preperations) %></li>
+<% end %> 
