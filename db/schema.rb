@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106182317) do
+ActiveRecord::Schema.define(:version => 20121110142034) do
+
+  create_table "countries", :force => true do |t|
+    t.string   "code",       :limit => 10,                     :null => false
+    t.string   "name",       :limit => 100,                    :null => false
+    t.string   "iso3",       :limit => 3,                      :null => false
+    t.integer  "numeric",                                      :null => false
+    t.boolean  "eu",                        :default => false, :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.integer  "recipe_id"
+  end
+
+  add_index "countries", ["code"], :name => "index_countries_on_code", :unique => true
 
   create_table "favourites", :force => true do |t|
     t.integer  "user_id"

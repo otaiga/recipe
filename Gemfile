@@ -31,6 +31,9 @@ gem "nested_form"
 #paperclip
 gem "paperclip", "~> 3.0"
 
+#Countries of the world
+gem "terrarum"
+
 
 
 #js stuff:

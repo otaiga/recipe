@@ -1,4 +1,18 @@
-<%= form_tag({:controller => 'search', :action => 'search'}, {:method => 'get'})  do |s| %>
+<%= form_tag({:controller => 'search', :action => 'search'}, {:method => 'get'})  do |select| %>
+ <%= label_tag :search, "Enter Keywords Here" %>
  <%= text_field_tag :search, params[:search] %>
+ <%= label_tag :country_of_origin, "Search by Country" %>
+ <%= select_tag :country_of_origin,  [['Wales'],['Scotland'],['England']], {:include_blank => 'Please Select'} %>
+ <%= label_tag :difficulty, "Search by Difficulty" %>
+ <%= select_tag :difficulty, [['Beginner'],['Intermediate'],['Expert']], {:include_blank => 'Please Select'} %>
+ <%= label_tag :preperation_time, "Search by preperation time" %>
+ <%= select_tag :preperation_time, [['15..30'],['30..60'],['60..120']], {:include_blank => 'Please Select'} %><br>
+
  <%= submit_tag "Search" %>
+ <% end %>
+
+ <%= form_tag({:controller => 'search', :action => 'search'}, {:method => 'get'})  do |select| %>
+ <%= label_tag :country, "Search by Country" %>
+ <%= select_tag collection_select(:country, :country_id, Country.all, :id, :name, :prompt => 'Please select country') %>
+
  <% end %>

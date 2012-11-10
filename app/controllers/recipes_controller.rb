@@ -9,6 +9,9 @@ before_filter :authenticate_user!
     
      @recipes = current_user.recipes if current_user.recipes #show recipes if the user has any recipes
      @favourites = current_user.favourites
+     @country = Country.all
+
+     puts params.inspect
   end
 
   def search_recipes
@@ -28,6 +31,7 @@ before_filter :authenticate_user!
   def new 
 
   @recipe = Recipe.new
+  @recipe.build_country
   @recipe.ingredients.build
   @recipe.preperations.build
 

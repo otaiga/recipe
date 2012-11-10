@@ -2,9 +2,14 @@
 
 <%= f.label :dish_name, "Dish Name" %>
 <%= f.text_field :dish_name, :placeholder => "Enter Dish Name" %>
+ 
+<%= f.fields_for :country do |con| %>
 
-<%= f.label :country_of_origin, "Country Of Origin" %>
-<%= f.select :country_of_origin,  [['Wales'],['Scotland'],['England']], {:include_blank => 'Please Select'} %>
+<%= con.label :country, "Country Of Origin" %>
+<%= collection_select(:country, :country_id, Country.all, :id, :name, :prompt => 'Please select country') %>
+
+<% end %>
+
 
 <%= f.label :difficulty, "Difficulty Level" %>
 <%= f.select :difficulty, [['Beginner'],['Intermediate'],['Expert']], {:include_blank => 'Please Select'} %>
@@ -12,16 +17,17 @@
 <%= f.label :preperation_time, "Preperation Time (Mins)" %>
 <%= f.select :preperation_time, [['15..30'],['30..60'],['60..120']], {:include_blank => 'Please Select'} %>
 
-<%= f.fields_for :ingredients do |ff| %>
+<%= f.fields_for :ingredients do |ing| %>
  Ingredient<br>
- <%= ff.text_field :ingredient_name , :placeholder => "Enter Ingredient Here" %><br>
+ <%= ing.text_field :ingredient_name , :placeholder => "Enter Ingredient Here" %><br>
 <% end %>
 <%= f.link_to_add "Add an Ingredient", :ingredients %><br>
 
-<%= f.fields_for :preperations do |fff| %>
+<%= f.fields_for :preperations do |prep| %>
  Preperation Step<br>
- <%= fff.text_field :prep_steps , :placeholder => "Enter step Here" %><br>
+ <%= prep.text_field :prep_steps , :placeholder => "Enter step Here" %><br>
 <% end %>
+
 <%= f.link_to_add "Add a step", :preperations %><br>
 
 <%= f.file_field :avatar %><br>

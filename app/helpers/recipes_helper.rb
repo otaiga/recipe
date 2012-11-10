@@ -14,5 +14,12 @@ module RecipesHelper
    end
   end
 
+  def country_name(country)
+    if country
+      country_array = country.map {|c| c.country_name}
+      country_array.join("\n")
+   end
+  end
+
 
 end
