@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110142034) do
+ActiveRecord::Schema.define(:version => 20121111114454) do
 
   create_table "countries", :force => true do |t|
     t.string   "code",       :limit => 10,                     :null => false
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(:version => 20121110142034) do
     t.boolean  "eu",                        :default => false, :null => false
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
-    t.integer  "recipe_id"
   end
 
   add_index "countries", ["code"], :name => "index_countries_on_code", :unique => true
@@ -49,7 +48,6 @@ ActiveRecord::Schema.define(:version => 20121110142034) do
 
   create_table "recipes", :force => true do |t|
     t.string   "dish_name"
-    t.string   "country_of_origin"
     t.string   "difficulty"
     t.integer  "preperation_time"
     t.datetime "created_at",          :null => false
@@ -59,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20121110142034) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "country_id"
   end
 
   create_table "users", :force => true do |t|

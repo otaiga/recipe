@@ -23,7 +23,7 @@
   <% @recipes.each do |r| %>
   <tr>
     <td><%= r.dish_name %></td>
-    <td><%= r.country_of_origin %></td>
+    <td><% if r.country %><%= r.country.name %></td><% end %>
     <td><%= r.difficulty %></td>
     <td><%= r.preperation_time %></td>
     <td><%= ingredient_names(r.ingredients) %></td>

@@ -17,7 +17,7 @@
   <% @recipes.each do |r| %>
   <tr>
     <td><%= r.dish_name %></td>
-    <td><%= r.country_of_origin %></td>
+    <td><% if r.country %><%= r.country.name %></td><% end %>
     <td><%= r.difficulty %></td>
     <td><%= r.preperation_time %></td>
     <td><%= ingredient_names(r.ingredients) %></td>
@@ -36,7 +36,7 @@
 
 <% @latestrecipe.each do |r| %>
 <li><%= r.dish_name %></li>
-<li><%= r.country_of_origin %></li>
+<li><% if r.country %><%= r.country.name %></li><% end %>
 <li><%= r.difficulty %></li>
 <li><%= r.preperation_time %></li>
 <li><%= ingredient_names(r.ingredients) %></li>
@@ -47,7 +47,7 @@
 <li><%= @featurerecipe.dish_name %></li>
 
 
-<h2>Top Ranking Country</h2>
-<%= @toprankingcountry.country_of_origin  %>
+<!--<h2>Top Ranking Country</h2>
+<%= @toprankingcountry.country_name  %>-->
 
 

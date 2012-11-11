@@ -13,7 +13,7 @@
   <% @favourites.each do |f| %>
   <tr>
     <td><%= f.recipe.dish_name %></td>
-    <td><%= f.recipe.country_of_origin %></td>
+    <td><% if f.recipe.country %><%= f.recipe.country.name %></td><% end %>
     <td><%= f.recipe.difficulty %></td>
     <td><%= f.recipe.preperation_time %></td>
     <td><%= ingredient_names(f.recipe.ingredients) %></td>
