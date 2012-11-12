@@ -17,12 +17,13 @@ Recipes::Application.routes.draw do
 
   scope :controller => :recipes do
     get "my_recipes"
-    get "search_recipes"
+    get "all_recipes"
   end
 
   scope :controller => :search do
     get "index"
     get "search"
+    get "search_recipes"
   end
 
 

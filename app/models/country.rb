@@ -1,6 +1,6 @@
 class Country < ActiveRecord::Base
 
-  belongs_to :recipe
+  has_many :recipes
 
   scope :code, lambda { |code| where(:code => code.to_s) }
 
