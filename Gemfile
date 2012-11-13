@@ -46,6 +46,13 @@ group :test, :development do
   gem 'rspec-rails'
   #adding database cleaner for tests
   gem 'database_cleaner'
+  #run tests automatically
+  gem 'autotest'
+  #run tests faster
+  gem 'spork'
+  #allows factory girl
+  gem 'factory_girl_rails'
+
 end
 
 # To use ActiveModel has_secure_password

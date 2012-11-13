@@ -14,6 +14,4 @@ require 'spec_helper'
   #pending "add some examples to (or delete) #{__FILE__}"
 #end
 
-def mock_recipe(stubs={})
-  @mock_recipe ||= mock_model(Recipe, stubs).as_null_object
-end
+

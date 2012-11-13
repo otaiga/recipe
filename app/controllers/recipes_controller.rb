@@ -9,11 +9,7 @@ before_filter :authenticate_user!
     
      @recipes = current_user.recipes if current_user.recipes #show recipes if the user has any recipes
      @favourites = current_user.favourites
-
-
-     
-
-    
+  
   end
 
   def search_recipes

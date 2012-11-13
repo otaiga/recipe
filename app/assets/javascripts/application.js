@@ -16,6 +16,8 @@
 //= require jquery_nested_form
 //= require_tree .
 
+// AJAX call for search results
+
 $(document).ready(function() {
  $('.searchbutton').click(function() {
   $('#searchres').load('search');

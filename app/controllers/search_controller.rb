@@ -15,6 +15,8 @@ class SearchController < ApplicationController
     q
 )
 
+#@countrysearch = Recipe.joins("LEFT OUTER JOIN countries ON countries.id = recipes.country_id").select
+
 render :partial => 'shared/searchresults'
 
   end
