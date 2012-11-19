@@ -7,6 +7,5 @@ class PublicPagesController < ApplicationController
     @featurerecipe = Recipe.offset(rand(Recipe.count)).first
     @toprankingcountry = Recipe.top_countries.first
     
-
   end
 end

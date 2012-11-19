@@ -28,6 +28,9 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 # Allows nested forms and add additional fields
 gem "nested_form"
 
+#Search Function
+gem "ransack"
+
 #paperclip
 gem "paperclip", "~> 3.0"
 

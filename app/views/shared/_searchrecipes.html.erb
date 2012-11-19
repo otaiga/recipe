@@ -14,4 +14,14 @@
  <%= submit_tag "Search", :class => "searchbutton" %>
  <% end %>
 
+ <%= search_form_for  @q do |f| %>
+  <%= f.label :difficulty_cont %>
+  <%= f.text_field :difficulty_cont %>
+  <%= f.submit %>
+<% end %>
+
+
+
+
+
  
