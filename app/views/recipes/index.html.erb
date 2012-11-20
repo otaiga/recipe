@@ -4,7 +4,7 @@
 
 <%= f.label :country_name_cont, "Choose Country" %>
 
-<%= f.collection_select :country_id_eq, Country.all, :id, :name, multiple: true %>
+<%= f.collection_select :country_id_eq, Country.all, :id, :name, multiple: true, :prompt => "Please Select" %>
 
 <%= f.label :difficulty_cont, "Choose Difficulty" %>
 <%= f.select :difficulty_eq, options_for_select([['Beginner'],['Intermediate'],['Expert']]),{:prompt => 'Please Select'}%>
