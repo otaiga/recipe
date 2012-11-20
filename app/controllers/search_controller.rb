@@ -18,8 +18,7 @@ class SearchController < ApplicationController
 
   def search_recipes
 
-   @q = Recipe.search(params[:q])
-   @recipesearch = @q.result(:distinct => true)
+   
   end
 
   

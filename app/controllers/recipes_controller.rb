@@ -2,7 +2,9 @@ class RecipesController < ApplicationController
 before_filter :authenticate_user!
 
   def index
-  
+    @q = Recipe.search(params[:q])
+    @searchresults = @q.result(:distinct => true)
+    @q.build_condition
   end
 
   def my_recipes
@@ -19,6 +21,7 @@ before_filter :authenticate_user!
   end
 
   def all_recipes
+    
     @recipes = Recipe.all
     @latestrecipe = Recipe.order("created_at desc").limit(5)
     @featurerecipe = Recipe.offset(rand(Recipe.count)).first

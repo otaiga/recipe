@@ -79,7 +79,7 @@ Recipes::Application.routes.draw do
 
   # Directing the user after login
   authenticated :user do
-    root :to => 'recipes#my_recipes'
+    root :to => 'recipes#index'
   end
 
   # You can have the root of your site routed with "root"

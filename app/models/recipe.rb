@@ -10,6 +10,8 @@ has_many :favourites
 
 
 
+
+
 attr_accessible :dish_name, :difficulty, :preperation_time, :ingredients_attributes, :preperations_attributes, :country_id, :avatar
 
 has_attached_file :avatar, :styles => {  :medium => "300x300>", :thumb => "100x100>" } 

@@ -1,8 +1,19 @@
-<h1>Recipe Home Page when logged in</h1>
+<%= search_form_for @q do |f| %>
+<%= f.label :dish_name_cont, "Enter Dish Name" %>
+<%= f.text_field :dish_name_cont %>
 
-<li><%= link_to('Logout', destroy_user_session_path, confirm: 'Are you sure you want to logout?', :method =>:delete) %></li>
-<li><%= link_to "New Recipe", new_recipe_path %></li>
-<li><%= link_to "All Recipes", public_pages_path %></li>
+<%= f.label :country_name_cont, "Choose Country" %>
+
+<%= f.collection_select :country_id_eq, Country.all, :id, :name, multiple: true %>
+
+<%= f.label :difficulty_cont, "Choose Difficulty" %>
+<%= f.select :difficulty_eq, options_for_select([['Beginner'],['Intermediate'],['Expert']]),{:prompt => 'Please Select'}%>
+
+<%= f.label :preperation_time_cont, "Choose Preperation Time" %>
+<%= f.select :preperation_time_eq, options_for_select([['15..30'],['30..60'],['60..120']]), {:prompt => 'Please Select'}%>
+
+<%= f.submit %>
+<% end %>
 
 <h1>Recipes</h1>
 
@@ -15,12 +26,9 @@
     <th>ingredient</th>
     <th>Preperation</th>
     <th>Image</th>
-    <th>Delete</th>
-    <th>Edit</th>
-    <th>New</th>
   </tr>
 
-  <% @recipes.each do |r| %>
+  <% @searchresults.each do |r| %>
   <tr>
     <td><%= r.dish_name %></td>
     <td><% if r.country %><%= r.country.name %></td><% end %>
@@ -29,10 +37,6 @@
     <td><%= ingredient_names(r.ingredients) %></td>
     <td><%= preperation_steps(r.preperations) %></td>
     <td><%= image_tag r.avatar.url(:thumb)%></td>
-    
-    <td><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></td>
-    <td><%= link_to "Edit Recipe", edit_recipe_path(r.id) %></td>
-    <td><%= link_to "New Recipe", new_recipe_path %></td>
  </tr>
 
   <% end %>

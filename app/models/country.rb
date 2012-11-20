@@ -2,6 +2,8 @@ class Country < ActiveRecord::Base
 
   has_many :recipes
 
+ 
+
   scope :code, lambda { |code| where(:code => code.to_s) }
 
   validates :code, :presence => true, :length => { :maximum => 5 }, :uniqueness => true
