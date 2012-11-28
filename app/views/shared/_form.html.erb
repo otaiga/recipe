@@ -1,0 +1,37 @@
+<%= nested_form_for @recipe  do |f| %>
+
+<%= f.label :dish_name, "Dish Name" %>
+<%= f.text_field :dish_name, :placeholder => "Enter Dish Name" %>
+ 
+
+
+<%= f.label :country_id, "Country Of Origin" %>
+<%= f.collection_select(:country_id, Country.all, :id, :name, :prompt => 'Please select country') %>
+
+<%= f.label :category, "Category" %>
+<%= f.select :category, [['Meat'], ['Vegeterian'], ['Desserts']], {:include_blank => 'Please Select'} %>
+
+
+<%= f.label :difficulty, "Difficulty Level" %>
+<%= f.select :difficulty, [['Beginner'],['Intermediate'],['Expert']], {:include_blank => 'Please Select'} %>
+
+<%= f.label :preperation_time, "Preperation Time (Mins)" %>
+<%= f.select :preperation_time, [['15..30'],['30..60'],['60..120']], {:include_blank => 'Please Select'} %>
+
+<%= f.fields_for :ingredients do |ing| %>
+ Ingredient<br>
+ <%= ing.text_field :ingredient_name , :placeholder => "Enter Ingredient Here" %><br>
+<% end %>
+<%= f.link_to_add "Add an Ingredient", :ingredients %><br>
+
+<%= f.fields_for :preperations do |prep| %>
+ Preperation Step<br>
+ <%= prep.text_field :prep_steps , :placeholder => "Enter step Here" %><br>
+<% end %>
+
+<%= f.link_to_add "Add a step", :preperations %><br>
+
+<%= f.file_field :avatar %><br>
+
+<%= f.submit "Submit Recipe" %>
+<% end %>

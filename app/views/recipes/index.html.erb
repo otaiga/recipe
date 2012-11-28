@@ -1,21 +1,9 @@
-<%= search_form_for @q do |f| %>
-<%= f.label :dish_name_cont, "Enter Dish Name" %>
-<%= f.text_field :dish_name_cont %>
 
-<%= f.label :country_name_cont, "Choose Country" %>
+<%= render 'shared/searchrecipes' %>
+  <div id ="searchres"></div>
 
-<%= f.collection_select :country_id_eq, Country.all, :id, :name, multiple: true, :prompt => "Please Select" %>
 
-<%= f.label :difficulty_cont, "Choose Difficulty" %>
-<%= f.select :difficulty_eq, options_for_select([['Beginner'],['Intermediate'],['Expert']]),{:prompt => 'Please Select'}%>
-
-<%= f.label :preperation_time_cont, "Choose Preperation Time" %>
-<%= f.select :preperation_time_eq, options_for_select([['15..30'],['30..60'],['60..120']]), {:prompt => 'Please Select'}%>
-
-<%= f.submit %>
-<% end %>
-
-<h1>Recipes</h1>
+<h1>Results</h1>
 
 <table>
   <tr>
@@ -41,3 +29,36 @@
 
   <% end %>
 </table>
+
+<h1>Meat Recipes</h1>
+<%= @meatrecipes.category  %>
+
+<h1>All Meat Recipes</h1>
+
+<table>
+  <tr>
+    <th>Name Of Dish</th>
+    <th>Country Of Origin</th>
+    <th>Category</th>
+    <th>Difficulty</th>
+    <th>Preperation Time</th>
+    <th>ingredient</th>
+    <th>Preperation</th>
+    <th>Image</th>
+  </tr>
+
+  <% @meats.each do |r| %>
+  <tr>
+    <td><%= r.dish_name %></td>
+    <td><% if r.country %><%= r.country.name %></td><% end %>
+    <td><%= r.category %></td>
+    <td><%= r.difficulty %></td>
+    <td><%= r.preperation_time %></td>
+    <td><%= ingredient_names(r.ingredients) %></td>
+    <td><%= preperation_steps(r.preperations) %></td>
+    <td><%= image_tag r.avatar.url(:thumb)%></td>
+ </tr>
+
+  <% end %>
+</table>
+

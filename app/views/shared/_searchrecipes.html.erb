@@ -1,21 +1,20 @@
-<%= form_tag({:controller => 'search', :action => 'search'}, {:method => 'get', :remote => true })  do |select| %>
- <%= label_tag :search, "Enter Keywords Here" %>
- <%= text_field_tag :search, params[:search] %>
-
- <%= label_tag :country, "Search by Country" %>
- <%= collection_select(:country, :country_id, Country.all, :id, :name, :prompt => 'Please Select') %>
  
- <%= label_tag :difficulty, "Search by Difficulty" %>
- <%= select_tag :difficulty, options_for_select([['Beginner'],['Intermediate'],['Expert']]), {:prompt => 'Please Select'} %>
+<%= search_form_for @q do |f| %>
+<%= f.label :dish_name_cont, "Enter Dish Name" %>
+<%= f.text_field :dish_name_cont %>
 
- <%= label_tag :preperation_time, "Search by preperation time" %>
- <%= select_tag :preperation_time, options_for_select([['15..30'],['30..60'],['60..120']]), {:prompt => 'Please Select'} %><br>
+<%= f.label :country_name_cont, "Choose Country" %>
 
- <%= submit_tag "Search", :class => "searchbutton" %>
- <% end %>
+<%= f.collection_select :country_id_eq, Country.all, :id, :name, multiple: true, :prompt => "Please Select" %>
 
- 
+<%= f.label :difficulty_cont, "Choose Difficulty" %>
+<%= f.select :difficulty_eq, options_for_select([['Beginner'],['Intermediate'],['Expert']]),{:prompt => 'Please Select'}%>
 
+<%= f.label :preperation_time_cont, "Choose Preperation Time" %>
+<%= f.select :preperation_time_eq, options_for_select([['15..30'],['30..60'],['60..120']]), {:prompt => 'Please Select'}%>
+
+<%= f.submit "Search", :class => "searchbutton" %>
+<% end %>
 
 
 

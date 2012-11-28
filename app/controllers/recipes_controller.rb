@@ -5,6 +5,12 @@ before_filter :authenticate_user!
     @q = Recipe.search(params[:q])
     @searchresults = @q.result(:distinct => true)
     @q.build_condition
+
+    @meatrecipes = Recipe.meat_recipes.first
+    #@meats = Recipe.find(:all, :select => ' category, dish_name, difficulty, preperation_time,avatar_file_name, avatar_updated_at')
+    @meats= Recipe.select(:category).uniq(false)
+
+
   end
 
   def my_recipes
@@ -27,6 +33,7 @@ before_filter :authenticate_user!
     @featurerecipe = Recipe.offset(rand(Recipe.count)).first
     #@toprankingcountry = Recipe.top_countries.first
 
+
   end
 
   def show
@@ -46,7 +53,7 @@ before_filter :authenticate_user!
   def create
     @recipe = current_user.recipes.new(params[:recipe])
     if @recipe.save
-      redirect_to my_recipes_path, :notice => "Recipe sucessfully created."
+      redirect_to my_recipes_path, :notice => "Thanks #{current_user.name} Recipe sucessfully created."
     end
   end
 
