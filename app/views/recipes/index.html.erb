@@ -97,16 +97,8 @@
   <% @desserts.each do |r| %>
 
     <div class="box">  
-    <p><%= link_to r.dish_name %></p>
-    <ul>
-    <li>Country of Origin&nbsp;<% if r.country %><%= r.country.name %></li><% end %>
-    <li>Category <%= r.category %></li>
-    <li>Difficulty<%= r.difficulty %></li>
-    <li>Prep Time<%= r.preperation_time %></li>
-    <li>Ingredient List<br><%= ingredient_names(r.ingredients) %></li>
-    <li>How to prepare<%= preperation_steps(r.preperations) %></li>
-    <td><%= image_tag r.avatar.url(:thumb)%></td>
-    </ul>
+    <p><%= link_to r.dish_name, recipe %></p>
+    
 
   <% end %>
 </div><!--/box-->
