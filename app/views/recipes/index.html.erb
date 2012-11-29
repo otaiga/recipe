@@ -30,8 +30,6 @@
   <% end %>
 </table>
 
-<h1>Meat Recipes</h1>
-<%= @meatrecipes.category  %>
 
 <h1>All Meat Recipes</h1>
 
@@ -62,3 +60,56 @@
   <% end %>
 </table>
 
+<h1>All Vegeterian Recipes</h1>
+
+<table>
+  <tr>
+    <th>Name Of Dish</th>
+    <th>Country Of Origin</th>
+    <th>Category</th>
+    <th>Difficulty</th>
+    <th>Preperation Time</th>
+    <th>ingredient</th>
+    <th>Preperation</th>
+    <th>Image</th>
+  </tr>
+
+  <% @vegrecipes.each do |r| %>
+  <tr>
+    <td><%= r.dish_name %></td>
+    <td><% if r.country %><%= r.country.name %></td><% end %>
+    <td><%= r.category %></td>
+    <td><%= r.difficulty %></td>
+    <td><%= r.preperation_time %></td>
+    <td><%= ingredient_names(r.ingredients) %></td>
+    <td><%= preperation_steps(r.preperations) %></td>
+    <td><%= image_tag r.avatar.url(:thumb)%></td>
+ </tr>
+
+  <% end %>
+</table>
+
+<h1>All Desserts</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+  <% @desserts.each do |r| %>
+
+    <div class="box">  
+    <p><%= link_to r.dish_name %></p>
+    <ul>
+    <li>Country of Origin&nbsp;<% if r.country %><%= r.country.name %></li><% end %>
+    <li>Category <%= r.category %></li>
+    <li>Difficulty<%= r.difficulty %></li>
+    <li>Prep Time<%= r.preperation_time %></li>
+    <li>Ingredient List<br><%= ingredient_names(r.ingredients) %></li>
+    <li>How to prepare<%= preperation_steps(r.preperations) %></li>
+    <td><%= image_tag r.avatar.url(:thumb)%></td>
+    </ul>
+
+  <% end %>
+</div><!--/box-->
+</div>
+</div>
+</div>

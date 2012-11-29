@@ -19,7 +19,17 @@ has_attached_file :avatar, :styles => {  :medium => "300x300>", :thumb => "100x1
 accepts_nested_attributes_for :ingredients, :preperations
 
 #scope :top_countries, order("country_name DESC")
+
+#Scopes
+
 scope :meat_recipes, where(:category => "meat")
+scope :veg_recipes, where(:category => "vegeterian")
+#scope :dessert_recipes, where(:category => "Desserts")
+
+def self.dessert_recipes
+  self.where(:category => "Desserts")
+
+end
 
 
 

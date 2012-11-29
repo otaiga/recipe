@@ -5,10 +5,10 @@ before_filter :authenticate_user!
     @q = Recipe.search(params[:q])
     @searchresults = @q.result(:distinct => true)
     @q.build_condition
+    @meats= Recipe.meat_recipes
+    @vegrecipes = Recipe.veg_recipes
+    @desserts = Recipe.dessert_recipes
 
-    @meatrecipes = Recipe.meat_recipes.first
-    #@meats = Recipe.find(:all, :select => ' category, dish_name, difficulty, preperation_time,avatar_file_name, avatar_updated_at')
-    @meats= Recipe.select(:category).uniq(false)
 
 
   end
@@ -22,7 +22,7 @@ before_filter :authenticate_user!
 
   def search_recipes
     
-    
+    render :partial => 'shared/searchresults'
 
   end
 
