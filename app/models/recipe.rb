@@ -14,7 +14,7 @@ has_many :favourites
 
 attr_accessible :dish_name, :difficulty, :preperation_time, :ingredients_attributes, :preperations_attributes, :country_id, :avatar, :category
 
-has_attached_file :avatar, :styles => {  :medium => "300x300>", :thumb => "100x100>" } 
+has_attached_file :avatar, :styles => { :showrecipe => "500x500>", :medium => "300x300>", :thumb => "100x100>" } 
 
 accepts_nested_attributes_for :ingredients, :preperations
 
