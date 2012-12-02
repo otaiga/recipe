@@ -1,6 +1,7 @@
 <table>
   <tr>
     <th>Name Of Dish</th>
+    <th>Description</th>
     <th>Country Of Origin</th>
     <th>Category</th>
     <th>Difficulty</th>
@@ -16,6 +17,7 @@
   <% @recipes.each do |r| %>
   <tr>
     <td><%= r.dish_name %></td>
+    <td><%= r.description %></td>
     <td><% if r.country %><%= r.country.name %></td><% end %>
     <td><% if r.category %><%= r.category %></td><% end %>
     <td><%= r.difficulty %></td>

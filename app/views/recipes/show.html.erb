@@ -1,9 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="span12">
-      <b><%= image_tag @recipe.avatar.url(:showrecipe) %><b><br>
       <b><%= @recipe.dish_name %></b><br>
-      <b>by&nbsp;<%= @recipe.user.name %></b>
+      <b><%= image_tag @recipe.avatar.url(:showrecipe) %><b><br>
+      <b>by&nbsp;<%= @recipe.user.name %></b></br></br>
+      <b>Description</b></br>
+      <b><%= @recipe.description %></b></br>
+      <b>Ingredients</b></br>
+      <b><%= raw(ingredient_names_list(@recipe.ingredients)) %></b>
+      <br>
+      <b>Preperation Steps</b></br>
+      <ol>
+      <li><%= raw(preperation_steps_list(@recipe.preperations)) %></li>
+    </ol>
+
+      
 
 
 

@@ -12,7 +12,7 @@ has_many :favourites
 
 
 
-attr_accessible :dish_name, :difficulty, :preperation_time, :ingredients_attributes, :preperations_attributes, :country_id, :avatar, :category
+attr_accessible :dish_name, :difficulty, :preperation_time, :ingredients_attributes, :preperations_attributes, :country_id, :avatar, :category, :description
 
 has_attached_file :avatar, :styles => { :showrecipe => "500x500>", :medium => "300x300>", :thumb => "100x100>" } 
 

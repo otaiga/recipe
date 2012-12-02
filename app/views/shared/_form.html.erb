@@ -31,6 +31,9 @@
 
 <%= f.link_to_add "Add a step", :preperations %><br>
 
+<%= f.label :description, "Description of Recipe" %>
+<%= f.text_area :description, :size=> "60x10" %></br>
+
 <%= f.file_field :avatar %><br>
 
 <%= f.submit "Submit Recipe" %>
