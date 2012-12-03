@@ -38,6 +38,7 @@ before_filter :authenticate_user!
 
   def show
     @recipe = Recipe.find(params[:id])
+    #@relatedrecipe = Recipe.where(@recipe.dish_name('LIKE'),(params[:dish_name]))
 
   end
 
