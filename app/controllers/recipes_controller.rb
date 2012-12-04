@@ -1,16 +1,12 @@
 class RecipesController < ApplicationController
 before_filter :authenticate_user!
 
+def search
+  
+end
+
   def index
-    @q = Recipe.search(params[:q])
-    @searchresults = @q.result(:distinct => true)
-    @q.build_condition
-    @meats= Recipe.meat_recipes
-    @vegrecipes = Recipe.veg_recipes
-    @desserts = Recipe.dessert_recipes
-
-
-
+   @recipes = Recipe.all
   end
 
   def my_recipes
@@ -20,11 +16,7 @@ before_filter :authenticate_user!
   
   end
 
-  def search_recipes
-    
-    render :partial => 'shared/searchresults'
 
-  end
 
   def all_recipes
     
@@ -32,6 +24,10 @@ before_filter :authenticate_user!
     @latestrecipe = Recipe.order("created_at desc").limit(5)
     @featurerecipe = Recipe.offset(rand(Recipe.count)).first
     #@toprankingcountry = Recipe.top_countries.first
+    @meats= Recipe.meat_recipes
+    @vegrecipes = Recipe.veg_recipes
+    @desserts = Recipe.dessert_recipes
+
 
 
   end
@@ -86,5 +82,6 @@ end
   end
 
 end
+
 
 

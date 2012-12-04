@@ -29,7 +29,8 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem "nested_form"
 
 #Search Function
-gem "ransack"
+
+
 
 #paperclip
 gem "paperclip", "~> 3.0"
@@ -58,6 +59,9 @@ group :test, :development do
   gem 'factory_girl_rails'
 
 end
+
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

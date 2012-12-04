@@ -8,6 +8,81 @@
                     <%= render 'featurerecipe' %>
                       <h2>Top Ranking Country</h2>
                         <%= render 'topcountry' %>
+                        <h1>All Meat Recipes</h1>
+
+<table>
+  <tr>
+    <th>Name Of Dish</th>
+    <th>Country Of Origin</th>
+    <th>Category</th>
+    <th>Difficulty</th>
+    <th>Preperation Time</th>
+    <th>ingredient</th>
+    <th>Preperation</th>
+    <th>Image</th>
+  </tr>
+
+  <% @meats.each do |r| %>
+  <tr>
+    <td><%= r.dish_name %></td>
+    <td><% if r.country %><%= r.country.name %></td><% end %>
+    <td><%= r.category %></td>
+    <td><%= r.difficulty %></td>
+    <td><%= r.preperation_time %></td>
+    <td><%= ingredient_names(r.ingredients) %></td>
+    <td><%= preperation_steps(r.preperations) %></td>
+    <td><%= image_tag r.avatar.url(:thumb)%></td>
+ </tr>
+
+  <% end %>
+</table>
+
+<h1>All Vegeterian Recipes</h1>
+
+<table>
+  <tr>
+    <th>Name Of Dish</th>
+    <th>Country Of Origin</th>
+    <th>Category</th>
+    <th>Difficulty</th>
+    <th>Preperation Time</th>
+    <th>ingredient</th>
+    <th>Preperation</th>
+    <th>Image</th>
+  </tr>
+
+  <% @vegrecipes.each do |r| %>
+  <tr>
+    <td><%= r.dish_name %></td>
+    <td><% if r.country %><%= r.country.name %></td><% end %>
+    <td><%= r.category %></td>
+    <td><%= r.difficulty %></td>
+    <td><%= r.preperation_time %></td>
+    <td><%= ingredient_names(r.ingredients) %></td>
+    <td><%= preperation_steps(r.preperations) %></td>
+    <td><%= image_tag r.avatar.url(:thumb)%></td>
+ </tr>
+
+  <% end %>
+</table>
+
+<h1>All Desserts</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+  <% @desserts.each do |r| %>
+
+    <div class="box">  
+    <p><%= link_to r.dish_name, r %></p>
+    
+
+  <% end %>
+</div><!--/box-->
+</div>
+</div>
+</div>
+
     </div>
   </div>
 </div>

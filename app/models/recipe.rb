@@ -1,9 +1,12 @@
 class Recipe < ActiveRecord::Base
+
 belongs_to :user
 belongs_to :country
 has_many :ingredients 
 has_many :preperations
 has_many :favourites
+
+
 
 
 
@@ -25,6 +28,8 @@ accepts_nested_attributes_for :ingredients, :preperations
 scope :meat_recipes, where(:category => "meat")
 scope :veg_recipes, where(:category => "vegeterian")
 #scope :dessert_recipes, where(:category => "Desserts")
+
+
 
 def self.dessert_recipes
   self.where(:category => "Desserts")

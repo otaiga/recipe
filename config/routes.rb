@@ -4,6 +4,7 @@ Recipes::Application.routes.draw do
               :sessions => 'my_devise/sessions'
               }
 
+
   resources :recipes do
     resources :ingredients
     resources :preperations
@@ -19,17 +20,10 @@ Recipes::Application.routes.draw do
   end
 
   scope :controller => :recipes do
+    get "search"
     get "my_recipes"
     get "all_recipes"
   end
-
-  scope :controller => :search do
-    get "index"
-    get "search"
-    get "search_recipes"
-  end
-
-
 
 
  
@@ -97,3 +91,4 @@ Recipes::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 end
+
