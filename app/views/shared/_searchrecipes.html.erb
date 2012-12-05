@@ -1,7 +1,20 @@
-<%= form_tag search_path, :method => :get do %>
-<p>
-  <%= text_field_tag :query, params[:query] %> <%= submit_tag "Search!" %>
-</p>
+<%= search_form_for @q do |f| %>
+<%= f.label :dish_name_cont, "Enter Dish Name" %>
+<%= f.text_field :dish_name_cont %>
+
+<%= f.label :country_name_cont, "Choose Country" %>
+
+<%= f.collection_select :country_id_eq, Country.all, :id, :name, multiple: true, :prompt => "Please Select" %>
+
+<%= f.label :difficulty_cont, "Choose Difficulty" %>
+<%= f.select :difficulty_eq, options_for_select([['Beginner'],['Intermediate'],['Expert']]),{:prompt => 'Please Select'}%>
+
+<%= f.label :preperation_time_cont, "Choose Preperation Time" %>
+<%= f.select :preperation_time_eq, options_for_select([['15..30'],['30..60'],['60..120']]), {:prompt => 'Please Select'}%>
+
+<%= f.submit "Search", :class => "searchbutton" %>
 <% end %>
+
+
 
  

@@ -6,7 +6,9 @@ def search
 end
 
   def index
-   @recipes = Recipe.all
+    @q = Recipe.search(params[:q])
+    @searchresults = @q.result(:distinct => true)
+    @q.build_condition
   end
 
   def my_recipes
@@ -34,7 +36,7 @@ end
 
   def show
     @recipe = Recipe.find(params[:id])
-    #@relatedrecipe = Recipe.where(@recipe.dish_name('LIKE'),(params[:dish_name]))
+    @relatedrecipe = Recipe.related
 
   end
 

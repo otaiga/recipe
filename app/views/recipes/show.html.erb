@@ -17,7 +17,13 @@
 
     <div class="span4">
       <h3>Related Recipes</h3>
-      
+      <% @relatedrecipe.each do |r| %>
+
+    <div class="box">  
+    <p><%= link_to r.dish_name, r %></p>
+    
+
+  <% end %>
     </div>
 
       

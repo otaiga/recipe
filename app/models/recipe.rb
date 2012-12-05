@@ -28,6 +28,8 @@ accepts_nested_attributes_for :ingredients, :preperations
 scope :meat_recipes, where(:category => "meat")
 scope :veg_recipes, where(:category => "vegeterian")
 #scope :dessert_recipes, where(:category => "Desserts")
+scope :related, :conditions => ('dish_name LIKE "%#{@recipe.dish_name}%"')
+
 
 
 
@@ -35,6 +37,9 @@ def self.dessert_recipes
   self.where(:category => "Desserts")
 
 end
+
+
+
 
 
 
