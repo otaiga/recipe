@@ -27,8 +27,6 @@ accepts_nested_attributes_for :ingredients, :preperations
 
 scope :meat_recipes, where(:category => "meat")
 scope :veg_recipes, where(:category => "vegeterian")
-#scope :dessert_recipes, where(:category => "Desserts")
-scope :related, :conditions => ('dish_name LIKE "%#{@recipe.dish_name}%"')
 
 
 
@@ -39,10 +37,19 @@ def self.dessert_recipes
 end
 
 
+def related_recipes
 
+    # take the recipe's dish name (@recipe.dish_name) and
+    # split it at spaces, then wrap each with '%' to create SQL query terms,
+    # so "italian pasta" becomes ["%italian%", "%pasta%"]
+    terms = @recipe.dish_name.split(' ').map { |t| "%#{t}%" }
 
+    # create a scope with all recipes except this one
+    others = self.class.where('id != ?', id)
 
-
-  
-
+    # return all recipes other than this one that contain any of the terms
+    # e.g. for the dish "italian pasta", this will become:
+    # others.where('dish_name LIKE ? OR dish_name LIKE ?', '%italian%', '%pasta%')
+    return others.where(terms.map { 'dish_name LIKE ?' }.join(' OR '), *(terms))
+  end
 end

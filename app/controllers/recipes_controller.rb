@@ -36,7 +36,7 @@ end
 
   def show
     @recipe = Recipe.find(params[:id])
-    @relatedrecipe = Recipe.related
+    @related_recipes = @recipe.related_recipes
 
   end
 
