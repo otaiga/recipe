@@ -7,7 +7,7 @@
      </div>
       <h4><%= link_to r.dish_name, r %></h4>
        <hr>
-        <p><%= r.description %></p>
+        <p><%= truncate r.description, :length => 90 %></p>
    <p><%= link_to "Edit Recipe", edit_recipe_path(r.id) %></p>
    <p><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></p>
    <p><%= link_to "Add to favorites",  {:controller => 'favourites', :action => 'create', :recipe_id => r.id}, {:method => :post } %></p>

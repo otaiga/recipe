@@ -12,14 +12,30 @@
  *= require_tree .
 */
 
+/* General */
+
+.center {
+  margin: 0 auto;
+}
+
+.thumbnail.noBorder {
+  border:none;
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  float:right;
+}
+
 /* Navigation */
 
 
 .navBar{
   list-style-type: none;
   text-align: center;
-  border-bottom:2px solid #5E6063;
-  border-top:2px solid #5E6063;
 }
 .navBar li {
   display: inline;
@@ -31,6 +47,28 @@
   font-size:1.3em;
   padding:10px;
   display:inline-block;
+  border-bottom:2px solid #333;
+  margin-left: 15px;
+}
+
+.navBar li a:hover {
+  border-bottom:2px solid red;
+}
+
+/* Show Page */
+
+.show {
+  list-style-type: none;
+  margin:0px;
+}
+
+.show li {
+  margin-bottom:5px;
+  line-height:25px;
+}
+
+ol.method li {
+  margin-bottom:10px;
 }
 
 /* Pagination */
@@ -45,7 +83,25 @@
 
 
 p {
-  color:#909090;
+  color:#6F716B;
+}
+
+.name {
+  color:#6F716B;
+  font-size:1.2em;
+  padding-top:5px;
+  clear:both;
+}
+
+.time {
+  padding-left:5px;
+  vertical-align:2px;
+}
+
+.description {
+  border-bottom:1px solid #CCC;
+  padding-bottom:10.5px;
+  color:#333;
 }
 
 h4 a {

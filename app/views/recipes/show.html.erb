@@ -1,18 +1,24 @@
 <div class="container">
   <div class="row">
     <div class="span8">
-      <b><%= @recipe.dish_name %></b><br>
-      <b><%= image_tag @recipe.avatar.url(:showrecipe) %><b><br>
-      <b>by&nbsp;<%= @recipe.user.name %></b></br></br>
-      <b>Description</b></br>
-      <b><%= @recipe.description %></b></br>
-      <b>Ingredients</b></br>
-      <b><%= raw(ingredient_names_list(@recipe.ingredients)) %></b>
+      <h3><%= @recipe.dish_name %></h3>
+      <div class="thumbnail noBorder">
+      <%= image_tag @recipe.avatar.url(:showrecipe), :class=> "left" %>
+    </div>
+      <p class="name">by&nbsp;<%= @recipe.user.name %></p>
+      <i class="icon-time icon-large"></i><span class="time"><%= @recipe.preperation_time %></span><br>
+      <i class="icon-info-sign icon-large"></i><span class="time"><%= @recipe.difficulty %></span>
+      <h3>Description</h3>
+      <p class="description"><%= @recipe.description %></p>
+      <h3>Ingredients</h3>
+      <ul class="show">
+      <li><%= raw(ingredient_names_list(@recipe.ingredients)) %></li>
+    </ul>
       <br>
-      <b>Preperation Steps</b></br>
-      <ol>
-      <li><%= raw(preperation_steps_list(@recipe.preperations)) %></li>
-    </ol>
+      <h3>Method</h3>
+       <ol class="method">
+        <li><%= raw(preperation_steps_list(@recipe.preperations)) %></li></br>
+       </ol>
   </div>
 
     <div class="span4">
