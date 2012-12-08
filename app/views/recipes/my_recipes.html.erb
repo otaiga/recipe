@@ -2,9 +2,16 @@
  <div class="row">
   <div class="span12">
    <h1>My Recipes</h1>
-    <%= render "shared/myrecipes" %>
-     <h2>My Favourite Recipes</h2>
-      <%= render 'favouriterecipes' %>
+   <%= button_to "Create New Recipe", new_recipe_path %>
   </div>
  </div>
 </div>
+<%= render "shared/myrecipes" %>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+     <h2>My Favourite Recipes</h2>
+   </div>
+ </div>
+</div>
+<%= render 'favouriterecipes' %>
