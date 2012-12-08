@@ -1,20 +1,23 @@
 class RecipesController < ApplicationController
 before_filter :authenticate_user!
 
-def search
-  
-end
 
   def index
     @q = Recipe.search(params[:q])
     @searchresults = @q.result(:distinct => true)
-    @q.build_condition
+    #@q.build_condition
+    
+  end
+
+  def search
+   index
+   render :partial => 'shared/searchresults'
+
   end
 
   def my_recipes
-    
-     @recipes = current_user.recipes if current_user.recipes #show recipes if the user has any recipes
-     @favourites = current_user.favourites
+    @recipes = current_user.recipes.paginate(:page => params[:page], :per_page => 4) if current_user.recipes 
+    @favourites = current_user.favourites.paginate(:page => params[:page], :per_page => 4) if current_user.favourites
   
   end
 

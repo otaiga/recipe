@@ -15,12 +15,34 @@
 
 </head>
 <body>
-  <% if user_signed_in? %>
-   <%= render "shared/navbarlogin" %>
-  <% else %>
-   <%= render "shared/navbar" %>
-  <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <header>
+          <h1>RealRecipes</h1>
+          <h3>...for you!</h3>
+        </header>
+        </div>
+      </div>
+   <div class="container">
+    <div class="row">
+      <div class="span12">
+        <nav>
+          <ul class="navBar">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "My Recipes", my_recipes_path %></li>
+            <li><%= link_to "All Recipes", all_recipes_path %></li>
+            <li><%= link_to "Search Recipes", search_path %></li>
+            <li><%= link_to('Logout', destroy_user_session_path, confirm: 'Are you sure you want to logout?', :method =>:delete) %></li>
+          </ul>
 
+
+        </nav>
+      </div>
+    </div>
+  </div><!--/container-->
+
+    
 
 
 

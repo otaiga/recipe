@@ -17,7 +17,7 @@ has_many :favourites
 
 attr_accessible :dish_name, :difficulty, :preperation_time, :ingredients_attributes, :preperations_attributes, :country_id, :avatar, :category, :description
 
-has_attached_file :avatar, :styles => { :showrecipe => "500x500>", :medium => "300x300>", :thumb => "100x100>" } 
+has_attached_file :avatar, :styles => { :myrecipes => "260x260", :showrecipe => "500x500>", :medium => "300x300>", :thumb => "100x100>" } 
 
 accepts_nested_attributes_for :ingredients, :preperations
 
@@ -42,7 +42,7 @@ def related_recipes
     # take the recipe's dish name (@recipe.dish_name) and
     # split it at spaces, then wrap each with '%' to create SQL query terms,
     # so "italian pasta" becomes ["%italian%", "%pasta%"]
-    terms = @recipe.dish_name.split(' ').map { |t| "%#{t}%" }
+    terms = dish_name.split(' ').map { |t| "%#{t}%" }
 
     # create a scope with all recipes except this one
     others = self.class.where('id != ?', id)

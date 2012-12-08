@@ -1,4 +1,4 @@
-<%= search_form_for @q do |f| %>
+<%= search_form_for @q, :url => search_path, :html => {:method => :post }  do |f| %>
 <%= f.label :dish_name_cont, "Enter Dish Name" %>
 <%= f.text_field :dish_name_cont %>
 

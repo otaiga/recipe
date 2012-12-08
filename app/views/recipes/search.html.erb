@@ -1,4 +1,5 @@
-<table>
+<h1>Results</h1>
+ <table>
   <tr>
     <th>Name Of Dish</th>
     <th>Country Of Origin</th>
@@ -6,10 +7,10 @@
     <th>Preperation Time</th>
     <th>ingredient</th>
     <th>Preperation</th>
-    <th>favs</th>
+    <th>Image</th>
   </tr>
 
-  <% @recipes.each do |r| %>
+  <% @searchresults.each do |r| %>
   <tr>
     <td><%= r.dish_name %></td>
     <td><% if r.country %><%= r.country.name %></td><% end %>
@@ -17,10 +18,9 @@
     <td><%= r.preperation_time %></td>
     <td><%= ingredient_names(r.ingredients) %></td>
     <td><%= preperation_steps(r.preperations) %></td>
-    <td><%= link_to "Add to favorites",  {:controller => 'favourites', :action => 'create', :recipe_id => r.id}, {:method => :post } %></td>
-    
-
+    <td><%= image_tag r.avatar.url(:thumb)%></td>
  </tr>
 
   <% end %>
 </table>
+  

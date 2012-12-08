@@ -1,37 +1,24 @@
-<table>
-  <tr>
-    <th>Name Of Dish</th>
-    <th>Description</th>
-    <th>Country Of Origin</th>
-    <th>Category</th>
-    <th>Difficulty</th>
-    <th>Preperation Time</th>
-    <th>ingredient</th>
-    <th>Preperation</th>
-    <th>Image</th>
-    <th>Delete</th>
-    <th>Edit</th>
-    <th>Fav</th>
-  </tr>
-
-  <% @recipes.each do |r| %>
-  <tr>
-    <td><%= r.dish_name %></td>
-    <td><%= r.description %></td>
-    <td><% if r.country %><%= r.country.name %></td><% end %>
-    <td><% if r.category %><%= r.category %></td><% end %>
-    <td><%= r.difficulty %></td>
-    <td><%= r.preperation_time %></td>
-    <td><%= ingredient_names(r.ingredients) %></td>
-    <td><%= preperation_steps(r.preperations) %></td>
-    <td><%= image_tag r.avatar.url(:thumb)%></td>
-    
-    <td><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></td>
-    <td><%= link_to "Edit Recipe", edit_recipe_path(r.id) %></td>
-     <td><%= link_to "Add to favorites",  {:controller => 'favourites', :action => 'create', :recipe_id => r.id}, {:method => :post } %></td>
- </tr>
-
-  <% end %>
-</table>
-
+<div class="row">
+ <% @recipes.each do |r| %>
+  <div class="span3">
+    <div class="thumbnail">
+     <%= image_tag r.avatar.url(:myrecipes) %>
+    </div>
+   <h4><%= link_to r.dish_name, r %></h4>
+   <hr>
+   <p><%= r.description %></p>
+   <p><%= link_to "Edit Recipe", edit_recipe_path(r.id) %></p>
+   <p><%= link_to "Delete Recipe", recipe_path(r.id), :confirm => "Are you sure?", :method => :delete %></p>
+   <p><%= link_to "Add to favorites",  {:controller => 'favourites', :action => 'create', :recipe_id => r.id}, {:method => :post } %></p>
+  </div>
+ <% end %>
+</div><!--/row-->
+<div class="row">
+  <div class="span12">
+  <%= will_paginate @recipes %>
+</div>
+</div>
+<br><br>
 <li><%= link_to "Create New Recipe", new_recipe_path %></li>
+
+  

@@ -25,7 +25,7 @@ Recipes::Application.routes.draw do
     get "all_recipes"
   end
 
-
+ match 'search' => 'recipes#search', :via => [:get, :post], :as => :search
  
   # The priority is based upon order of creation:
   # first created -> highest priority.

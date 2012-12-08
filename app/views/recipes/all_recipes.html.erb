@@ -20,6 +20,7 @@
     <th>ingredient</th>
     <th>Preperation</th>
     <th>Image</th>
+    <th>favs</th>
   </tr>
 
   <% @meats.each do |r| %>
@@ -32,6 +33,7 @@
     <td><%= ingredient_names(r.ingredients) %></td>
     <td><%= preperation_steps(r.preperations) %></td>
     <td><%= image_tag r.avatar.url(:thumb)%></td>
+    
  </tr>
 
   <% end %>

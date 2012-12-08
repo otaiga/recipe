@@ -24,7 +24,7 @@ gem 'devise'
 
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
+gem 'will_paginate', '~> 3.0'
 # Allows nested forms and add additional fields
 gem "nested_form"
 
