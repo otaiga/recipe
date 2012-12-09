@@ -1,0 +1,13 @@
+<div id="meatRecipes">
+    <div class="span4">
+      <h4>Meat Dishes</h4>
+       <div class="thumbnail">
+       <% @meats.each do |r| %>
+       <%= image_tag r.avatar.url(:showrecipe) %>
+       <%= link_to r.dish_name, r %>
+       <p>By <%= r.user.name %></p>
+       </div>
+       <%= will_paginate @meats,  :param_name => 'meat_recipes'  %>
+       <% end %>
+      </div>
+    </div>

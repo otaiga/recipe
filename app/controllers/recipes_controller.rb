@@ -16,25 +16,24 @@ before_filter :authenticate_user!
   end
 
   def my_recipes
-    @recipes = current_user.recipes.paginate(:page => params[:page], :per_page => 4) if current_user.recipes 
+    @recipes = current_user.recipes.paginate(:page => params[:user_recipes_page], :per_page => 4) if current_user.recipes 
     @favourites = current_user.favourites.paginate(:page => params[:page], :per_page => 4) if current_user.favourites
-  
+
+
   end
 
-
-
+  
   def all_recipes
     
     @recipes = Recipe.all
     @latestrecipe = Recipe.order("created_at desc").limit(5)
     @featurerecipe = Recipe.offset(rand(Recipe.count)).first
     #@toprankingcountry = Recipe.top_countries.first
-    @meats= Recipe.meat_recipes
-    @vegrecipes = Recipe.veg_recipes
-    @desserts = Recipe.dessert_recipes
+    @meats= Recipe.meat_recipes.paginate(:page => params[:meat_recipes], :per_page => 1)
+    @vegrecipes = Recipe.veg_recipes.paginate(:page => params[:veg_recipes], :per_page => 1)
+    @desserts = Recipe.dessert_recipes.paginate(:page => params[:dessert_recipes], :per_page => 1)
 
-
-
+     
   end
 
   def show

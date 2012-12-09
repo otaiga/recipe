@@ -23,6 +23,7 @@ Recipes::Application.routes.draw do
     get "search"
     get "my_recipes"
     get "all_recipes"
+    get "userrecipes"
   end
 
  match 'search' => 'recipes#search', :via => [:get, :post], :as => :search

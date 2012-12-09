@@ -1,0 +1,15 @@
+<div id="vegeterianRecipes">
+    <div class="span4">
+      <h4>Vegeterian Dishes</h4>
+      <div class="thumbnail">
+        <% @vegrecipes.each do |r| %>
+       <%= image_tag r.avatar.url(:showrecipe) %>
+       <%= link_to r.dish_name, r %>
+       <p>By <%= r.user.name %></p>
+     </div>
+     <%= will_paginate @vegrecipes, :param_name => 'veg_recipes'  %>
+
+       <% end %>
+
+       </div>
+      </div>

@@ -1,0 +1,13 @@
+<div id="dessertRecipes">
+  <div class="span4">
+    <h4>Desserts</h4>
+      <div class="thumbnail">
+       <% @desserts.each do |r| %>
+       <%= image_tag r.avatar.url(:showrecipe) %>
+       <%= link_to r.dish_name, r %>
+       <p>By <%= r.user.name %></p>
+     </div>
+      <%= will_paginate @desserts, :param_name => 'dessert_recipes'  %>
+    <% end %>
+  </div>
+</div>

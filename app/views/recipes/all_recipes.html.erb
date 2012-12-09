@@ -8,48 +8,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="span4">
-      <h4>Meat Dishes</h4>
-       <div class="thumbnail">
-       <% @meats.each do |r| %>
-       <%= image_tag r.avatar.url(:showrecipe) %>
-       <%= link_to r.dish_name, r %>
-       <p>By <%= r.user.name %></p>
-
-       <% end %>
-
-
-       </div>
-      </div>
- 
-
-    <div class="span4">
-      <h4>Vegeterian Dishes</h4>
-      <div class="thumbnail">
-        <% @vegrecipes.each do |r| %>
-       <%= image_tag r.avatar.url(:showrecipe) %>
-       <%= link_to r.dish_name, r %>
-       <p>By <%= r.user.name %></p>
-
-       <% end %>
-
-       </div>
-      </div>
-
-
-    <div class="span4">
-      <h4>Desserts</h4>
-      <div class="thumbnail">
-        <% @desserts.each do |r| %>
-       <%= image_tag r.avatar.url(:showrecipe) %>
-       <%= link_to r.dish_name, r %>
-       <p>By <%= r.user.name %></p>
-
-       <% end %>
-
-       </div>
-      </div>
-
+    <%= render 'meatrecipes' %>
+    <%= render 'vegeterianrecipes' %>
+    <%= render 'dessertrecipes' %>
   </div>
 </div>
 

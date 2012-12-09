@@ -18,12 +18,11 @@
 
 // AJAX call for search results
 
-$(document).ready(function() {
- $('.searchbutton').click(function() {
-  $('#searchres').load('search');
+/*$(document).ready(function() {
+ $('.pagination a').click(function() {
+  $('#userRecipes').load('userrecipes');
 
  });
 
-});
-
+});*/
 
