@@ -15,7 +15,7 @@
 <div class="container">
  <div class="row">
   <div class="span12">
-  <%= will_paginate @favourites %>
+  <%= will_paginate @favourites, :param_name => 'favourite_page' %>
  </div>
 </div>
 </div>

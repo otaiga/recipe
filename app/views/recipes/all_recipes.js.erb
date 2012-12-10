@@ -1,6 +1,18 @@
-
+<% if params[:meat_recipes] %>
 $('#meatRecipes').html('<%= escape_javascript(render partial: 'meatrecipes') %>');
 $.setAjaxPagination();
+<% end %>
+
+<% if params[:veg_recipes] %>
+$('#vegRecipes').html('<%= escape_javascript(render partial: 'vegeterianrecipes') %>');
+$.setAjaxPagination();
+<% end %>
+
+<% if params[:dessert_recipes] %>
+$('#dessertRecipes').html('<%= escape_javascript(render partial: 'dessertrecipes') %>');
+$.setAjaxPagination();
+<% end %>
+
 
 
 

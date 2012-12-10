@@ -17,7 +17,7 @@ before_filter :authenticate_user!
 
   def my_recipes
     @recipes = current_user.recipes.paginate(:page => params[:user_recipes_page], :per_page => 4) if current_user.recipes 
-    @favourites = current_user.favourites.paginate(:page => params[:page], :per_page => 4) if current_user.favourites
+    @favourites = current_user.favourites.paginate(:page => params[:favourite_page], :per_page => 4) if current_user.favourites
 
 
   end
