@@ -6,6 +6,7 @@
     <th>Preperation Time</th>
     <th>ingredient</th>
     <th>Preperation</th>
+    <th>Image</th>
     <th>favs</th>
   </tr>
 
@@ -17,6 +18,7 @@
     <td><%= r.preperation_time %></td>
     <td><%= ingredient_names(r.ingredients) %></td>
     <td><%= preperation_steps(r.preperations) %></td>
+    <td><%= image_tag r.avatar.url(:thumb) %></td>
     <td><%= link_to "Add to favorites",  {:controller => 'favourites', :action => 'create', :recipe_id => r.id}, {:method => :post } %></td>
     
 

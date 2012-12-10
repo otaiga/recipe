@@ -1,7 +1,10 @@
+<div class="showContent">
+
 <%= search_form_for @q, :url => search_path, :html => {:method => :post }  do |f| %>
 <%= f.label :dish_name_cont, "Enter Dish Name" %>
-<%= f.text_field :dish_name_cont %>
-
+<%= f.text_field :dish_name_cont %><br>
+<%= link_to "Advanced Search", :class => 'reveal' %>
+<div class="hideContent">
 <%= f.label :country_name_cont, "Choose Country" %>
 
 <%= f.collection_select :country_id_eq, Country.all, :id, :name, multiple: true, :prompt => "Please Select" %>
@@ -14,6 +17,8 @@
 
 <%= f.submit "Search", :class => "searchbutton" %>
 <% end %>
+</div><!--/hideContent-->
+</div>
 
 
 

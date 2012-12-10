@@ -26,3 +26,15 @@
 
 });*/
 
+$(document).ready(function() {
+  $('.hideContent').hide();
+   $('.reveal').click(function() {
+    $('.reveal').slideToggle();
+
+
+   });
+
+
+
+});
+
